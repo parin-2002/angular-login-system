@@ -1,0 +1,130 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 order-lg-2">
+            <div class="center-div">
+                <img class="imga"
+                    src="https://png.pngtree.com/png-vector/20190611/ourlarge/pngtree-web-development-illustration-modern-can-be-used-for-landing-pages-web-png-image_1496210.jpg" />
+            </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+            <div class="intro">
+                <h1>Welcom To Angular Project</h1>
+                <h5>It is prectice project in angular let me tell how's it.</h5>
+                <div class="mt-3">
+                    <button (click)="scrollAbout()" class="btn btn-outline-primary ml-3">About us</button>
+                    <button (click)="scrollContact()" class="btn btn-outline-info ml-2">Contact</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="mx-2 mb-4 mt-3">
+    <div class="row">
+        <div class="col-4">
+            <div class="card mx-auto" style="width: 18rem;">
+                <img src="https://source.unsplash.com/300x250/?software,tea" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card mx-auto" style="width: 18rem;">
+                <img src="https://source.unsplash.com/300x250/?software,mobile" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card mx-auto" style="width: 18rem;">
+                <img src="https://source.unsplash.com/300x250/?software,laptop" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container about mt-3 mb-3">
+    <div class="row">
+        <div class="col-7 mx-auto">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">About Us
+                        <hr />
+                    </h5>
+                    <p class="card-text">Angular Project Some quick example text to build on the card title and make up
+                        the bulk of the
+                        card's
+                        content.Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contact card-body">
+    <div class="container contact-form">
+        <div class="contact-image">
+            <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+        </div>
+        <form #formData="ngForm" (ngSubmit)="mailData(formData.value)">
+            <h3>Drop Us a Message</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="email" minlength="12" pattern="^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                            required #email="ngModel" name="to" ngModel class="form-control"
+                            placeholder="Your Email." />
+                        <span class="error" *ngIf="email.invalid && email.touched">Enter Valid Email</span> </div>
+                    <div class="form-group mt-2">
+                        <input type="text" pattern="[a-zA-Z ]*" required #subject="ngModel" name="subject" ngModel
+                            class="form-control" placeholder="Enter Subject." />
+                    </div>
+                    <div class="col-md-12 mt-2">
+                        <div class="form-group">
+                            <textarea required #text="ngModel" name="text" ngModel class="form-control"
+                                placeholder="Your Message." style="width: 100%; height: 150px;"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="submit" [disabled]="formData.invalid" class="btn btn-outline-danger" />
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="footer">
+    <footer class="page-footer font-small cyan darken-3">
+        <div class="row">
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+                <a routerLink="https://localhost:4200/user/home">Angular Project</a>
+            </div>
+        </div>
+    </footer>
+</div>

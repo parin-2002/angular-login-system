@@ -1,0 +1,40 @@
+<div *ngIf="show">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Hey!</strong> Check Your Detail Some Detail Alarady Register
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+<div *ngIf="success">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Hey!</strong> Welcom To Angular Project
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <form #formData="ngForm" (ngSubmit)="register(formData.value)">
+            <h3 class="mt-2 mb-2">Register Form</h3>
+            <hr />
+            <input type="text" #username="ngModel" required minlength=8 ngModel id="login" class="fadeIn"
+                name="username" placeholder="username">
+            <br /><span *ngIf="username.invalid && username.touched">Enter minimum eight letter </span>
+            <input type="email" pattern="^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel" required ngModel
+                class="fadeIn" name="email" placeholder="email" />
+            <br /><span *ngIf="email.invalid && email.touched">Enter Valid Email</span>
+            <input type="text" #mobileno="ngModel" pattern="[0-9]*" maxlength="10" minlength="10" required ngModel
+                class="fadeIn" name="mobileno" placeholder="mobile no" />
+            <br /><span *ngIf="mobileno.invalid && mobileno.touched">Enter Valid Mobile No</span>
+            <input type="password" #password="ngModel" required ngModel id="password" class="fadeIn" name="password"
+                placeholder="password">
+            <br /><span *ngIf="password.invalid && password.touched">Enter Password</span>
+            <input type="password" #cpassword="ngModel" required ngModel class="fadeIn" name="cpassword"
+                placeholder="confirm password" />
+            <br /><span *ngIf="password.value!=cpassword.value && cpassword.touched">Password Not Match</span><br />
+            <input type="submit" [disabled]="formData.invalid" class="fadeIn fourth" value="Register">
+        </form>
+    </div>
+</div>

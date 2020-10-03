@@ -1,0 +1,8 @@
+.nav-item a:hover{
+    color:skyblue !important;
+    border-bottom:2px solid teal !important;
+}
+
+nav{
+    font-weight: 500;
+}

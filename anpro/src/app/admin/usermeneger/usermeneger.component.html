@@ -1,0 +1,94 @@
+<div *ngIf="show">
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Hey!</strong> Data Updated
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+<div *ngIf="msg">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Hey!</strong> Data Not Updated
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+<div class="container mt-3 d-flex">
+    <h4>Admin Penal</h4>
+    <button class="ml-auto btn btn-outline-danger" (click)="logout()">Logout</button>
+</div>
+
+<div class="container">
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mobile No</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of data">
+                    <th scope="row">{{item.id}}</th>
+                    <td>{{item.username}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.mobileno}}</td>
+                    <td><button class="btn btn-outline-danger" (click)='delete(item.email)'>Delete</button></td>
+                    <td><button (click)='userolddata(item.username,item.email,item.mobileno,item.password,item.id)'
+                            type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+                            Update
+                        </button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #form='ngForm' (ngSubmit)='update(form.value)'>
+                    <div class="form-group">
+                        <div class="form-group my-2">
+                            <label for="exampleInputPassword1">Username</label>
+                            <input type="text" value={{ausername}} ngModel class="my-1 form-control" name="username"
+                                placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Email</label>
+                            <input type="email" ngModel value={{aemail}} class="my-1 form-control" name='email'
+                                placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Mobile No</label>
+                            <input type="text" #mobile="ngModel" ngModel value={{amobileno}} class=" my-1 form-control"
+                                name="mobileno" placeholder="Mobile No">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" ngModel value={{apassword}} class="my-1 form-control" name="password"
+                                placeholder="Password">
+                        </div>
+                        <input type='submit' class="btn btn-outline-primary" />
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

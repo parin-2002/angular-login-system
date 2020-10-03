@@ -1,0 +1,27 @@
+<div *ngIf="show">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Hey!</strong> Invalid Username or Password.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <form #form="ngForm" (ngSubmit)="login(form.value)">
+            <h3 class="mt-2 mb-2">Login Form</h3>
+            <hr />
+            <input type="text" #username="ngModel" minlength="8" required ngModel class="fadeIn" name="username"
+                placeholder="username">
+            <input type="password" #password="ngModel" minlength="4" required ngModel class="fadeIn" name="password"
+                placeholder="password">
+            <input type="submit" [disabled]="form.invalid" class="fadeIn fourth" value="Log In">
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" routerLink="/user/register">Register</a>
+        </div>
+
+    </div>
+</div>
